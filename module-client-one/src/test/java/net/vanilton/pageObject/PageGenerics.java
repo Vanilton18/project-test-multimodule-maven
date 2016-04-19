@@ -20,21 +20,26 @@ public abstract class PageGenerics {
 	}
 
 	/**
-	 * Método de clique genérico dos Menus.
+	 * Método de clique genérico nos posts
 	 * @param name
 	 */
-	public void clickMainTabMenu(String name) {
-		driver.findElement(By.xpath("//a[contains(@class,'mdl-layout__tab') and text()='" + name + "']")).click();
+	public void clickMainPost(String name) {
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.linkText(name)));
+		driver.findElement(By.linkText(name)).click();
 	}
 
 	/***
-	 * Método genérico para verificar presença do menu selecionado.
+	 * Método genérico para verificar presença do post selecionado.
 	 * @param title
 	 * @return boolean
 	 */
-	public boolean isPresentTitleSectionPage(String title) {
+	public boolean isPresentTitlePost(String title) {
 		return wait.until(ExpectedConditions
-				.visibilityOfElementLocated(By.xpath("//div[contains(@class,'is-active')]//*[text()='" + title + "']")))
+				.visibilityOfElementLocated(By.xpath("//header[@class='entry-header' and contains(.,'"+title+"')]")))
 				.isDisplayed();
+	}
+	
+	public void waitLoadingPost(){
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='preloader']")));
 	}
 }

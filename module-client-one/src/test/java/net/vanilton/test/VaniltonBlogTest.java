@@ -16,7 +16,8 @@ public class VaniltonBlogTest extends BaseTest {
 	
 	@Test
 	public void verificandoTitulosdosMenu() {
-		main.verifyCurrentMainPageSection();
+		main.waitLoadingPost();
+		main.verifyCurrentPostSelect();
 	}
 
 }

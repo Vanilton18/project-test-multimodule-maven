@@ -9,17 +9,9 @@ public class MainPage extends PageGenerics {
 		super(driver);
 	}
 	
-	public void verifyCurrentMainPageSection(){
-		clickMainTabMenu("Home");
-		Assert.assertTrue(isPresentTitleSectionPage("Home"));
-		clickMainTabMenu("Tutoriais");
-		Assert.assertTrue(isPresentTitleSectionPage("Tutoriais"));
-		clickMainTabMenu("Publicações");
-		Assert.assertTrue(isPresentTitleSectionPage("Publicações"));
-		clickMainTabMenu("Sobre");
-		Assert.assertTrue(isPresentTitleSectionPage("Sobre Vanilton Pinheiro"));
-		clickMainTabMenu("Contato");
-		Assert.assertTrue(isPresentTitleSectionPage("Contato"));
+	public void verifyCurrentPostSelect(){
+		clickMainPost("Automatização de game mobile utilizando Sikuli");
+		Assert.assertTrue(isPresentTitlePost("Automatização de game mobile utilizando Sikuli"));
 	}
 
 }
